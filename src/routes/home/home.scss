@@ -1,3 +1,15 @@
-.hi {
-  color: red;
+.home {
+  margin: 0 auto;
+  width: 780px;
+  height: 100%;
+  border: 1px solid;
+}
+
+.header {
+  text-align: center;
+
+  .title {
+    font-size: 80px;
+    color: tomato;
+  }
 }

@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import Todo from "../../components/todo/Todo";
 import { actionCreators } from "../../store";
-import "./home.scss";
 
-const Home = ({ todos, addTodo }) => {
+const Header = ({ addTodo }) => {
   const [inputText, setInputText] = useState("");
 
   const onChange = (event) => {
@@ -26,26 +24,14 @@ const Home = ({ todos, addTodo }) => {
     addTodo(inputText);
     setInputText("");
   };
-
   return (
-    <section className="home">
-      <header className="header">
-        <h1 className="title">Todo List</h1>
-        <form onSubmit={onSubmit}>
-          <input value={inputText} onChange={onChange} />
-          <button>Add</button>
-        </form>
-      </header>
-      <ul>
-        {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} />
-        ))}
-      </ul>
-
-      <Link to="/login">
-        <div>로그인</div>
-      </Link>
-    </section>
+    <>
+      <h1>Todo List</h1>
+      <form onSubmit={onSubmit}>
+        <input value={inputText} onChange={onChange} />
+        <button>Add</button>
+      </form>
+    </>
   );
 };
 
@@ -65,4 +51,4 @@ const mapDispatchProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchProps)(Home);
+export default connect(mapStateToProps, mapDispatchProps)(Header);

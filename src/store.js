@@ -3,7 +3,7 @@ import { createStore } from "redux";
 // dispatch type 을 사용할 때의 변수 지정
 const TODO_ADD = "TODO_ADD";
 const TODO_DELETE = "TODO_DELETE";
-const TODO_CHECKED = "TODO_CHECKED";
+const TOTO_COMPLETED = "TODO_COMPLETED";
 
 const onAddTodo = (text) => {
   return {
@@ -28,7 +28,7 @@ const reducer = (state = [], action) => {
         { text: action.text, id: new Date().getTime(), completed: false },
       ];
     case TODO_DELETE:
-      return state.flter((todo) => todo.id !== action.id);
+      return state.filter((todo) => todo.id !== action.id);
     default:
       return state;
   }
